@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Navbar from './Navbar';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -15,7 +16,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 18,
+    fontSize: 20,
   },
 }));
 
@@ -28,11 +29,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-
 
 
 export default function RequestView() {
@@ -40,7 +36,7 @@ export default function RequestView() {
 
   useEffect(() => {
     return () => {
-      const intervalId = setInterval(() => {
+      setInterval(() => {
         setRows(JSON.parse(localStorage.getItem('request')))
       }, 100);
     }
@@ -60,10 +56,11 @@ export default function RequestView() {
 
   return (
     <>
+    <Navbar/>
     <div style={{ marginLeft: "300px", marginRight: "300px", border: "2px solid black"}}>
-      <h1>All Donations</h1>
+      <h1>All Requests</h1>
     <TableContainer component={Paper} >
-      <Table sx={{ maxWidth: 800 }} aria-label="customized table">
+      <Table sx={{  }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Blood Type</StyledTableCell>

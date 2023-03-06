@@ -1,12 +1,10 @@
-import {
-  TextField,
-  Button,
-} from "@material-ui/core";
-import * as React from "react";
-import { useState } from "react";
-export default function DonationForm() {
+import React from 'react'
+import './Form.css'
+import { useState } from 'react';
+import Navbar from './Navbar';
+function DonationForm() {
 
-    const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("");
 
       const [amount, setAmount] = useState(0);
     
@@ -37,36 +35,42 @@ export default function DonationForm() {
       };
 
   return (
-    <div className="App">
-      <form>
-        <TextField
-          style={{ width: "200px", margin: "5px" }}
-          type="text"
-          label="Blood Type"
-          variant="outlined"
-          onChange={(e)=>setTitle(e.target.value)}
-        />
-        <br />
-        <TextField
-          style={{ width: "200px", margin: "5px" }}
-          type="number"
-          label="Amount"
-          variant="outlined"
-          onChange={(e)=>setAmount(e.target.value)}
-        />
-        <br />
-        <TextField
-          style={{ width: "200px", margin: "5px" }}
-          type="text"
-          label="Desciption"
-          variant="outlined"
-          onChange={(e)=>setDescription(e.target.value)}
-        />
-        <br />
-        <Button variant="contained" color="primary" onClick={(e) => handleClick(e)}>
-          save
-        </Button>
-      </form>
-    </div>
-  );
+    <>
+      <Navbar/>
+      <div className='login'>
+        <form className="login-form">
+          <h2>Blood Donation</h2>
+
+          <select placeholder='Blood Type' onChange={(e)=>(setTitle(e.target.value))}>
+            <option value="" selected>Select Blood Type</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+          <input
+            type='number'
+            placeholder='Amount'
+            onChange={(e)=>(setAmount(e.target.value))}
+            name='number'
+          />
+          <input
+            type='text'
+            placeholder='Disease (if any)'
+            onChange={(e)=>(setDescription(e.target.value))}
+            name='lname'
+          />
+          <div className='login-footer'>
+            <button className='login-btn' onClick={handleClick}>Donate</button>
+          </div>
+        </form>
+      </div>
+    </>
+  )
 }
+
+export default DonationForm

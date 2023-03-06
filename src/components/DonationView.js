@@ -8,6 +8,7 @@
   import TableHead from '@mui/material/TableHead';
   import TableRow from '@mui/material/TableRow';
   import Paper from '@mui/material/Paper';
+import Navbar from './Navbar';
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -15,7 +16,7 @@
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 18,
+      fontSize: 20,
     },
   }));
 
@@ -53,10 +54,11 @@
 
     return (
       <>
+      <Navbar/>
       <div style={{ marginLeft: "300px", marginRight: "300px", border: "2px solid black"}}>
         <h1>All Donations</h1>
       <TableContainer component={Paper} >
-        <Table sx={{ maxWidth: 800 }} aria-label="customized table">
+        <Table sx={{  }} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Blood Type</StyledTableCell>
